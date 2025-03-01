@@ -9,14 +9,26 @@ use App\Models\College;
 class StudentController extends Controller
 {
 
-    public function index(){
-        $students = Student::orderBy('name')->pluck('name', 'id')->prepend('All Students', '');
-        if (request('student_id') == null){
-            $students= Student::orderBy('name')->get();
-        } else{
-            $students = Student::where('student_id', request('student_id'))->get();
+    public function index(Request $request){
+        $colleges = College::orderBy('name')->pluck('name', 'id')->prepend('All Colleges', '');
+    
+        $query = Student::query();
+    
+        //Filtering logic
+        if ($request->has('college_id') && $request->college_id != '') {
+            $query->where('college_id', $request->college_id);
         }
-        return view('students.index', compact('students'));
+        
+        //Sorting logic
+        if ($request->has('sort') && $request->sort == 'desc') {
+            $query->orderBy('name', 'desc');
+        } else {
+            $query->orderBy('name', 'asc');
+        }
+    
+        $students = $query->get();
+    
+        return view('students.index', compact('students', 'colleges'));
     }
 
     public function create(){
@@ -29,7 +41,7 @@ class StudentController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email',
-            'phone' => 'required|digits_between:1,12',
+            'phone' => 'required|digits_between:8,12',
             'dob' => 'required|date',
             'college_id' => 'required|exists:colleges,id'
         ]);
@@ -62,12 +74,6 @@ class StudentController extends Controller
         Student::destroy($id);
         return redirect()->route('students.index')->with('message', 'Student has been deleted successfully!');
     }
-
-
-
-
-
-    
 
 
 
