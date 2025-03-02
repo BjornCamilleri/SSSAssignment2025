@@ -59,6 +59,4 @@ class CollegeController extends Controller
         return redirect()->route('colleges.index')->with('message', 'College has been deleted successfully!');
     }
 
-
-
 }

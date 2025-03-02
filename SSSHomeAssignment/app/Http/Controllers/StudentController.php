@@ -80,12 +80,4 @@ class StudentController extends Controller
         return view('students.view', compact('student'));
     }
 
-
-
-
-
-
-
-    
-
 }
