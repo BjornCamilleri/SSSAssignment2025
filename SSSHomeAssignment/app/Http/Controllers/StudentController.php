@@ -41,7 +41,7 @@ class StudentController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email',
-            'phone' => 'required|digits_between:8,12',
+            'phone' => 'required|digits_between:8,12', // 8 to 12 digits due that the user can add +356
             'dob' => 'required|date',
             'college_id' => 'required|exists:colleges,id'
         ]);
@@ -61,7 +61,7 @@ class StudentController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email',
-            'phone' => 'required|digits_between:1,12',
+            'phone' => 'required|digits_between:8,12', // 8 to 12 digits due that the user can add +356
             'dob' => 'required|date',
             'college_id' => 'required|exists:colleges,id'
         ]);

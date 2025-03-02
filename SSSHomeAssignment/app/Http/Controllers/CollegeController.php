@@ -23,8 +23,9 @@ class CollegeController extends Controller
     }
 
     public function store(Request $request) {
+        //Validation
         $request->validate([
-            'name'=>'required',
+            'name'=>'required|unique:colleges,name',
             'address'=>'required'
         ]);
 
@@ -38,8 +39,9 @@ class CollegeController extends Controller
     }
 
     public function editstorage(Request $request, $id) {
+        //Validation
         $request->validate([
-            'name'=>'required',
+            'name'=>'required|unique:colleges,name,'.$id,
             'address'=>'required'
         ]);
 
