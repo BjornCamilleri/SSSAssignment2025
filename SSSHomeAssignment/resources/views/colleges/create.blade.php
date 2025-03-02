@@ -1,22 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Create College</title>
-</head>
-<body>
-    <div>
-        <form action="{{ route('colleges.store') }}" method="POST">
-            @csrf
-            <label for="name">Name</label>
-            <input type="text" name="name" id="name">
-            <label for="address">Address</label>
-            <input type="text" name="address" id="address">
-            <button type="submit">Submit</button>
-        </form>
+@extends('layouts.main')
+
+@section('content')
+<main class="py-5">
+  <div class="container">
+    <div class="row justify-content-md-center">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header card-title">
+            <strong>Create New College</strong>
+          </div>
+          <div class="card-body">
+            <form action="{{ route('colleges.store') }}" method="POST">
+              @csrf
+              
+              <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" name="name" id="name" class="form-control" placeholder="Enter college name" required>
+              </div>
+
+              <div class="mb-3">
+                <label for="address" class="form-label">Address</label>
+                <input type="text" name="address" id="address" class="form-control" placeholder="Enter address" required>
+              </div>
+
+              <div class="d-flex justify-content-center mt-4">
+                <button type="submit" class="btn btn-success w-100">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
-    
-</body>
-</html>
+  </div>
+</main>
+@endsection

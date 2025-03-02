@@ -1,23 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Edit College</title>
-</head>
-<body>
-    <div class="container">
-        <h1>Edit College - Only id 1</h1>
-        <form action="{{ route('colleges.editstorage', $college->id) }}" method="POST">
-            @csrf
-            <div class="form-group">
-                <label for="name">Name</label>
+@extends('layouts.main')
+
+@section('content')
+
+<main class="py-5">
+  <div class="container">
+    <div class="row justify-content-md-center">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header card-title">
+            <strong>Edit College</strong>
+          </div>           
+          <div class="card-body">
+            <form action="{{ route('colleges.editstorage', $college->id) }}" method="POST">
+              @csrf
+
+              <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
                 <input type="text" name="name" id="name" class="form-control" value="{{ $college->name }}" required>
-            </div>
-            <div class="form-group">
-                <label for="address">Address</label>
+              </div>
+
+              <div class="mb-3">
+                <label for="address" class="form-label">Address</label>
                 <input type="text" name="address" id="address" class="form-control" value="{{ $college->address }}" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Update</button>
-        </form>
+              </div>
+
+              <div class="d-flex justify-content-center mt-4">
+                <button type="submit" class="btn btn-success w-100">Update</button>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
-</body>
-</html>
+  </div>
+</main>
+
+@endsection

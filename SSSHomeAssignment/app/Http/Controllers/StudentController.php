@@ -75,6 +75,11 @@ class StudentController extends Controller
         return redirect()->route('students.index')->with('message', 'Student has been deleted successfully!');
     }
 
+    public function view($id) {
+        $student = Student::find($id);
+        return view('students.view', compact('student'));
+    }
+
 
 
 

@@ -1,36 +1,57 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Create Student</title>
-</head>
-<body>
-    <div>
-        <form action="{{ route('students.store') }}" method="POST">
-            @csrf
-            <label for="name">Name</label>
-            <input type="text" name="name" id="name" required>
+@extends('layouts.main')
 
-            <label for="email">Email</label>
-            <input type="email" name="email" id="email" required>
+@section('content')
+<main class="py-5">
+  <div class="container">
+    <div class="row justify-content-md-center">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header card-title">
+            <strong>Create New Student</strong>
+          </div>
+          <div class="card-body">
+            <form action="{{ route('students.store') }}" method="POST">
+              @csrf
+              
+              <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" name="name" id="name" class="form-control" placeholder="Enter student name" required>
+              </div>
 
-            <label for="phone">Phone</label>
-            <input type="text" name="phone" id="phone" required>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" name="email" id="email" class="form-control" placeholder="Enter email" required>
+              </div>
 
-            <label for="dob">Dob</label>
-            <input type="date" name="dob" id="dob" required>
+              <div class="mb-3">
+                <label for="phone" class="form-label">Phone</label>
+                <input type="text" name="phone" id="phone" class="form-control" placeholder="Enter phone number" required>
+              </div>
 
-            <label for="college_id">College</label>
-            <select name="college_id" id="college_id" required>
-                @foreach($colleges as $id => $name)
-                    <option value="{{ $id }}">{{ $name }}</option>
-                @endforeach
-            </select>
+              <div class="mb-3">
+                <label for="dob" class="form-label">Date of Birth</label>
+                <input type="date" name="dob" id="dob" class="form-control" required>
+              </div>
 
-            <button type="submit">Submit</button>
-        </form>
+              <div class="form-row">
+                <div class="col">
+                  <label for="college_id" class="form-label">College</label>
+                  <select name="college_id" id="college_id" class="form-control" required>
+                    @foreach($colleges as $id => $name)
+                      <option value="{{ $id }}">{{ $name }}</option>
+                    @endforeach
+                  </select>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-center mt-4">
+                <button type="submit" class="btn btn-success w-100">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
-</body>
-</html>
+  </div>
+</main>
+@endsection
