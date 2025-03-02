@@ -13,21 +13,7 @@
           <div class="card-body">
             <form action="{{ route('colleges.editstorage', $college->id) }}" method="POST">
               @csrf
-
-              <div class="mb-3">
-                <label for="name" class="form-label">Name</label>
-                <input type="text" name="name" id="name" class="form-control" value="{{ $college->name }}" required>
-              </div>
-
-              <div class="mb-3">
-                <label for="address" class="form-label">Address</label>
-                <input type="text" name="address" id="address" class="form-control" value="{{ $college->address }}" required>
-              </div>
-
-              <div class="d-flex justify-content-center mt-4">
-                <button type="submit" class="btn btn-success w-100">Update</button>
-              </div>
-
+              @include('colleges._edit')
             </form>
           </div>
         </div>

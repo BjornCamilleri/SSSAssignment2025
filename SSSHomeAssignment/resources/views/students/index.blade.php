@@ -16,25 +16,10 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('students.index') }}" method="GET" class="mb-3">
-                            <div class="form-row">
-                                <div class="col">
-                                    <label for="college_id">Filter by College</label>
-                                    <select name="college_id" id="college_id" class="form-control" onchange="this.form.submit()">
-                                        @foreach($colleges as $id => $name)
-                                            <option value="{{ $id }}" {{ request('college_id') == $id ? 'selected' : '' }}>{{ $name }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <div class="col">
-                                    <label for="sort">Sort by Name</label>
-                                    <select name="sort" id="sort" class="form-control" onchange="this.form.submit()">
-                                        <option value="asc" {{ request('sort') == 'asc' ? 'selected' : '' }}>Ascending</option>
-                                        <option value="desc" {{ request('sort') == 'desc' ? 'selected' : '' }}>Descending</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </form>
+
+                        @include('students._filter')
+                        @include('students._sort')
+                        
                         <table class="table table-striped table-hover">
                             <thead>
                                 <tr>
