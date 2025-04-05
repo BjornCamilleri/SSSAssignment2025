@@ -28,7 +28,7 @@
                   
                   <hr>
                   <div class="form-group row mb-0">
-                    <div class="col-md-9 offset-md-3">
+                    <div class="col-12 text-center">
                         <a href="{{ route('colleges.index') }}" class="btn btn-outline-secondary">Cancel</a>
                     </div>
                   </div>

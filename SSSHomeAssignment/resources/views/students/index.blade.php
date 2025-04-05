@@ -10,8 +10,8 @@
                     <div class="card-header card-title">
                         <div class="d-flex align-items-center">
                             <h2 class="mb-0">All Students</h2>
-                            <div class="ml-auto">
-                                <a href="{{ route('students.create') }}" class="btn btn-success"><i class="fa fa-plus-circle"></i> Add New</a>
+                            <div class="ms-auto">
+                                <a href="{{ route('students.create') }}" class="btn btn-dark"><i class="fa fa-plus-circle"></i> Add New</a>
                             </div>
                         </div>
                     </div>
@@ -28,6 +28,7 @@
                                     <th scope="col">Phone</th>
                                     <th scope="col">Dob</th>
                                     <th scope="col">College</th>
+                                    <th scope="col">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -43,8 +44,8 @@
                                         <td>{{ $student->college->name }}</td>
                                         <td width="150">
                                             <a href="{{ route('students.view', $student->id) }}" class="btn btn-sm btn-circle btn-outline-info" title="View"><i class="fa fa-eye"></i></a>
-                                            <a href="{{ route('students.edit', $student->id) }}" class="btn btn-sm btn-circle btn-outline-secondary" title="Edit"><i class="fa fa-edit"></i></a>
-                                            <a href="{{ route('students.destroy', $student->id) }}" class="btn btn-sm btn-circle btn-outline-danger" title="Delete" onclick="return confirm('Are you sure?')"><i class="fa fa-times"></i></a>
+                                            <a href="{{ route('students.edit', $student->id) }}" class="btn btn-sm btn-circle btn-outline-secondary" title="Edit"><i class="fa fa-pencil"></i></a>
+                                            <a href="{{ route('students.destroy', $student->id) }}" class="btn btn-sm btn-circle btn-outline-danger" title="Delete" onclick="return confirm('Are you sure?')"><i class="fa fa-trash"></i></a>
                                         </td>
                                     </tr>
                                 @endforeach

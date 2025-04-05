@@ -10,8 +10,8 @@
                 <div class="card-header card-title">
                   <div class="d-flex align-items-center">
                     <h2 class="mb-0">All Colleges</h2>
-                    <div class="ml-auto">
-                      <a href="{{ route('colleges.create') }}" class="btn btn-success"><i class="fa fa-plus-circle"></i> Add New</a>
+                    <div class="ms-auto">
+                      <a href="{{ route('colleges.create') }}" class="btn btn-dark"><i class="fa fa-plus-circle"></i> Add New</a>
                     </div>
                   </div>
                 </div>
@@ -21,6 +21,7 @@
                     <tr>
                       <th scope="col">Name</th>
                       <th scope="col">Address</th>
+                      <th scope="col">Actions</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -34,8 +35,8 @@
                             <td>{{ $college->address }}</td>
                             <td width="150">
                               <a href="{{ route('colleges.view', $college->id) }}" class="btn btn-sm btn-circle btn-outline-info" title="View"><i class="fa fa-eye"></i></a>
-                              <a href="{{ route('colleges.edit', $college->id) }}" class="btn btn-sm btn-circle btn-outline-secondary" title="Edit"><i class="fa fa-edit"></i></a>
-                              <a href="{{ route('colleges.destroy', $college->id) }}" class="btn btn-sm btn-circle btn-outline-danger" title="Delete" onclick="return confirm('Are you sure?')"><i class="fa fa-times"></i></a>
+                              <a href="{{ route('colleges.edit', $college->id) }}" class="btn btn-sm btn-circle btn-outline-secondary" title="Edit"><i class="fa fa-pencil"></i></a>
+                              <a href="{{ route('colleges.destroy', $college->id) }}" class="btn btn-sm btn-circle btn-outline-danger" title="Delete" onclick="return confirm('Are you sure?')"><i class="fa fa-trash"></i></a>
                           </td>
                         </tr>
                         @endforeach

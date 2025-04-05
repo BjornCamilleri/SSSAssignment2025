@@ -8,11 +8,14 @@
 
     <title>SSS Home Assignment</title>
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Varela+Round">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
+
     <!-- Bootstrap -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+
   </head>
   <body>
     <!-- navbar -->
@@ -29,7 +32,7 @@
         <div class="collapse navbar-collapse" id="navbar-toggler">
           <ul class="navbar-nav">
             <li class="nav-item"><a href="{{ route('colleges.index') }}" class="nav-link">Colleges</a></li>
-            <li class="nav-item active"><a href="{{ route('students.index') }}" class="nav-link">Students</a></li>
+            <li class="nav-item"><a href="{{ route('students.index') }}" class="nav-link">Students</a></li>
           </ul>
         </div>
       </div>
@@ -38,8 +41,6 @@
 
     @yield('content')
 
-    <script src="{{ asset('js/jquery.min.js') }}"></script>
-    <script src="{{ asset('js/popper.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
 
